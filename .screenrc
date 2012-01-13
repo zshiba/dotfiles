@@ -1,0 +1,61 @@
+# to set command key "Ctrl+t"
+escape ^Tt
+
+# to remain screen when it faces unexpected error until escape key is hit
+zombie ^[
+
+# to show command name
+verbose on
+
+# not to show startup message
+startup_message off
+
+# to enable 256 color
+term xterm-256color
+defbce on
+
+# to enable scroll???
+termcapinfo xterm* ti@:te@
+
+# to enable alternative screen
+altscreen on
+
+# to set shell as login command
+shell $SHELL
+
+# to use "utf-8"
+defencoding utf-8
+
+# to disable visual bell
+vbell off
+
+# to enable autodetach function
+autodetach on
+
+# to set default number of scroll back
+defscrollback 10000
+
+# to set time of showing message
+msgwait 3
+msgminwait 3
+
+# to split (like emacs) (Crtl+t x {3|2|1|0}) //(ref.: http://d.hatena.ne.jp/naoya/20051223/1135351050)
+bind x command -c esprit
+bind -c esprit 3 split -v
+bind -c esprit 2 split
+bind -c esprit 1 only
+bind -c esprit 0 remove
+
+# to resize (Ctrl+t s {r|l|b|t}) //(ref.: http://yskwkzhr.blogspot.com/2010/11/screenrc.html)
+bind s command -c cresize
+bind -c cresize r eval 'resize -h +1' 'command -c cresize'
+bind -c cresize l eval 'resize -h -1' 'command -c cresize'
+bind -c cresize b eval 'resize -v +1' 'command -c cresize'
+bind -c cresize t eval 'resize -v -1' 'command -c cresize'
+
+# to change focus (Ctrl+t o)
+bind o focus
+
+# to show status line
+caption always "%?%F%{= bw}%:%{= wk}%?%n %t"
+hardstatus alwayslastline "%{= wk}%{=b wk}(%H)%{-} [%-Lw%{= bw}%n %t%{-}%+Lw] %= %M/%d/%Y (%c) "
