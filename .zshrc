@@ -1,3 +1,5 @@
+#export PATH=/usr/local/bin:$PATH
+
 ##### (History){
 # file to save history
 HISTFILE=~/.zsh_history
@@ -23,17 +25,19 @@ bindkey -e
 ##### }(Keybind)
 
 ##### (Alias){
-alias ls='ls -aGl'
+alias ls='ls -G'
 #alias rm="rm -i"
 #alias cp="cp -i"
 #alias mv="mv -i"
 # for local machine
-alias screen='/usr/local/bin/screen'
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias git='/usr/local/git/bin/git'
+#alias screen='/usr/local/bin/screen'
+alias emacs='TERM=xterm-256color /usr/local/Cellar/emacs/24.2/bin/emacs -nw'
+#alias git='/usr/local/git/bin/git'
 ##### }(Alias)
 
 ##### (Basics){
+# to show the execution time (more than 3[sec])after the command
+REPORTTIME=3
 # to use color
 autoload -Uz colors
 colors
@@ -52,6 +56,8 @@ zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:default' menu select=1
 # to add colors for complements
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# to be case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz compinit
 compinit
 
