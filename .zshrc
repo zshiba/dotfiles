@@ -1,4 +1,4 @@
-#export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 ##### (History){
 # file to save history
@@ -31,7 +31,7 @@ alias ls='ls -G'
 #alias mv="mv -i"
 # for local machine
 #alias screen='/usr/local/bin/screen'
-alias emacs='TERM=xterm-256color /usr/local/Cellar/emacs/24.2/bin/emacs -nw'
+alias emacs='TERM=xterm-256color /usr/local/Cellar/emacs/24.3/bin/emacs -nw'
 #alias git='/usr/local/git/bin/git'
 ##### }(Alias)
 
