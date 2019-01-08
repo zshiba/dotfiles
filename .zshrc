@@ -31,7 +31,7 @@ alias ls='ls -G'
 #alias mv="mv -i"
 # for local machine
 #alias screen='/usr/local/bin/screen'
-alias emacs='TERM=xterm-256color /usr/local/Cellar/emacs/24.3/bin/emacs -nw'
+alias emacs='emacs -nw'
 #alias git='/usr/local/git/bin/git'
 ##### }(Alias)
 
@@ -101,3 +101,6 @@ setopt print_eightbit
 # not to send HUP signal when shell is terminated
 #setopt no_hup
 ##### }(Basics)
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
