@@ -1,2 +1,5 @@
 .DS_Store
-.emacs.d
+.emacs.d/auto-backup
+.emacs.d/auto-save-list
+.emacs.d/elpa
+.emacs.d/.lsp*
