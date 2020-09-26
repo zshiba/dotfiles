@@ -115,8 +115,8 @@
 (use-package company
   :ensure t
   :hook (after-init . global-company-mode)
-  :config (setq company-idle-delay 0.3)
-          (setq company-minimum-prefix-length 2)
+  :config (setq company-idle-delay 0.1)
+          (setq company-minimum-prefix-length 1)
   :bind (:map company-active-map
               ("C-h" . nil)
               ("C-n" . company-select-next)
@@ -135,16 +135,13 @@
   :ensure t
   :config (setq rust-format-on-save t))
 
+;;ToDo
+;M-x rust-run-clippy
 
 (use-package flycheck-rust
   :ensure t)
 (with-eval-after-load 'rust-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
-;;;;;ToDo
-;M-x rust-run-clippy
-;(setq lsp-keymap-prefix "s-l")
-;(setq lsp-rust-server 'rust-analyzer)
 
 (use-package racer
   :ensure t
@@ -157,6 +154,12 @@
 (use-package lsp-mode
   :ensure t
   :hook (rust-mode . lsp)
+  :init (setq lsp-keymap-prefix "M-s")
+  :config (setq gc-cons-threshold 100000000)
+          (setq read-process-output-max (* 1024 1024))
+  :bind (:map lsp-command-map
+          ("d" . lsp-find-definition)  ; M-s d
+          ("r" . lsp-find-references)) ; M-s r
   :commands lsp)
 
 
