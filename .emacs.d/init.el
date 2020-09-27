@@ -164,8 +164,13 @@
 
 
 (use-package lsp-ui
- :ensure t
- :commands lsp-ui-mode)
+  :ensure t
+  :config (setq lsp-ui-sideline-delay 0)
+          (setq lsp-ui-doc-enable nil)
+  :custom-face (lsp-face-highlight-read ((t (:inherit highlight :background "white" :foreground "black" :underline t))))
+               (lsp-face-highlight-textual ((t (:inherit highlight :background "white" :foreground "black"))))
+               (lsp-face-highlight-write ((t (:inherit highlight :background "white" :foreground "black" :weight bold))))
+  :commands lsp-ui-mode)
 
 
 
@@ -184,7 +189,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(anzu-mode-line ((t (:foreground "blue" :weight bold))))
  '(hl-line ((t (:inherit highlight :extend t :background "color-17"))))
  '(region ((t (:extend t :background "brightblack"))))
  '(trailing-whitespace ((t (:background "white")))))
