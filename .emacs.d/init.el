@@ -83,15 +83,22 @@
   (package-install 'use-package))
 
 
+;; hide mode names in mode line
+(use-package diminish
+  :ensure t)
+
+
 ;; use "C-_" for undo and "M-_" for redo
 (use-package undo-tree
   :ensure t
+  :diminish undo-tree-mode
   :config (global-undo-tree-mode 1))
 
 
 ;; show the total number of matches when searching
 (use-package anzu
   :ensure t
+  :diminish anzu-mode
   :config (global-anzu-mode 1)
   :custom-face (anzu-mode-line ((t (:foreground "blue" :weight bold))))
   :bind (([remap query-replace] . 'anzu-query-replace)
@@ -114,6 +121,7 @@
 ;; auto completion
 (use-package company
   :ensure t
+  :diminish company-mode
   :hook (after-init . global-company-mode)
   :config (setq company-idle-delay 0.1)
           (setq company-minimum-prefix-length 1)
@@ -145,6 +153,8 @@
 
 (use-package racer
   :ensure t
+  :diminish racer-mode
+  :diminish eldoc-mode
   :hook ((rust-mode . racer-mode)
          (racer-mode . eldoc-mode)
          (racer-mode . company-mode))
@@ -182,14 +192,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(flycheck anzu undo-tree use-package)))
+ '(package-selected-packages '(flycheck anzu undo-tree use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(anzu-mode-line ((t (:foreground "blue" :weight bold))))
  '(hl-line ((t (:inherit highlight :extend t :background "color-17"))))
+ '(lsp-face-highlight-read ((t (:inherit highlight :background "white" :foreground "black" :underline t))))
+ '(lsp-face-highlight-textual ((t (:inherit highlight :background "white" :foreground "black"))))
+ '(lsp-face-highlight-write ((t (:inherit highlight :background "white" :foreground "black" :weight bold))))
  '(region ((t (:extend t :background "brightblack"))))
  '(trailing-whitespace ((t (:background "white")))))
 
