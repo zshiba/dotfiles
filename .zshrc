@@ -95,3 +95,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### for rust projects
 export PATH="$HOME/.cargo/bin:$PATH"
+
+### for haskell projects
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
