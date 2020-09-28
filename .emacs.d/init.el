@@ -168,8 +168,9 @@
   :config (setq gc-cons-threshold 100000000)
           (setq read-process-output-max (* 1024 1024))
   :bind (:map lsp-command-map
-          ("d" . lsp-find-definition)  ; M-s d
-          ("r" . lsp-find-references)) ; M-s r
+          ("d" . lsp-find-definition)      ; M-s d
+          ("r" . lsp-find-references)      ; M-s r
+          ("e" . lsp-execute-code-action)) ; M-s e
   :commands lsp)
 
 
