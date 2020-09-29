@@ -161,9 +161,26 @@
   :config (setq company-tooltip-align-annotations t))
 
 
+(use-package haskell-mode
+  :ensure t)
+
+(use-package flycheck-haskell
+  :ensure t)
+(with-eval-after-load 'haskell-mode
+  (add-hook 'haskell-mode-hook #'flycheck-haskell-setup))
+
+(use-package lsp-haskell
+ :ensure t
+ :config (setq lsp-haskell-server-path "ghcide")
+         (setq lsp-haskell-server-args nil)
+        ;(setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+)
+
+
 (use-package lsp-mode
   :ensure t
-  :hook (rust-mode . lsp)
+  :hook ((rust-mode . lsp)
+         (haskell-mode . lsp))
   :init (setq lsp-keymap-prefix "M-s")
   :config (setq gc-cons-threshold 100000000)
           (setq read-process-output-max (* 1024 1024))
