@@ -85,7 +85,8 @@
 
 ;; hide mode names in mode line
 (use-package diminish
-  :ensure t)
+  :ensure t
+  :config (diminish 'eldoc-mode))
 
 
 ;; use "C-_" for undo and "M-_" for redo
@@ -154,7 +155,6 @@
 (use-package racer
   :ensure t
   :diminish racer-mode
-  :diminish eldoc-mode
   :hook ((rust-mode . racer-mode)
          (racer-mode . eldoc-mode)
          (racer-mode . company-mode))
