@@ -86,7 +86,8 @@
 ;; hide mode names in mode line
 (use-package diminish
   :ensure t
-  :config (diminish 'eldoc-mode))
+  :config (diminish 'eldoc-mode)
+          (diminish 'abbrev-mode))
 
 
 ;; use "C-_" for undo and "M-_" for redo
