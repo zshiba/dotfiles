@@ -181,7 +181,9 @@
 (use-package lsp-mode
   :ensure t
   :hook ((rust-mode . lsp)
-         (haskell-mode . lsp))
+         (haskell-mode . lsp)
+         (c-mode . lsp)
+         (c++-mode . lsp))
   :init (setq lsp-keymap-prefix "M-s")
   :config (setq gc-cons-threshold 100000000)
           (setq read-process-output-max (* 1024 1024))
