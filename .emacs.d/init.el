@@ -141,6 +141,32 @@
          ("M-E" . flycheck-previous-error)))
 
 
+(use-package lsp-mode
+  :ensure t
+  :hook ((rust-mode . lsp)
+         (haskell-mode . lsp)
+         (c-mode . lsp)
+         (c++-mode . lsp))
+  :init (setq lsp-keymap-prefix "M-s")
+  :config (setq gc-cons-threshold 100000000)
+          (setq read-process-output-max (* 1024 1024))
+  :bind (:map lsp-command-map
+          ("d" . lsp-find-definition)      ; M-s d
+          ("r" . lsp-find-references)      ; M-s r
+          ("e" . lsp-execute-code-action)) ; M-s e
+  :commands lsp)
+
+
+(use-package lsp-ui
+  :ensure t
+  :config (setq lsp-ui-sideline-delay 0)
+          (setq lsp-ui-doc-enable nil)
+  :custom-face (lsp-face-highlight-read ((t (:inherit highlight :background "white" :foreground "black" :underline t))))
+               (lsp-face-highlight-textual ((t (:inherit highlight :background "white" :foreground "black"))))
+               (lsp-face-highlight-write ((t (:inherit highlight :background "white" :foreground "black" :weight bold))))
+  :commands lsp-ui-mode)
+
+
 (use-package rust-mode
   :ensure t
   :config (setq rust-format-on-save t))
@@ -176,33 +202,6 @@
          (setq lsp-haskell-server-args nil)
         ;(setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
 )
-
-
-(use-package lsp-mode
-  :ensure t
-  :hook ((rust-mode . lsp)
-         (haskell-mode . lsp)
-         (c-mode . lsp)
-         (c++-mode . lsp))
-  :init (setq lsp-keymap-prefix "M-s")
-  :config (setq gc-cons-threshold 100000000)
-          (setq read-process-output-max (* 1024 1024))
-  :bind (:map lsp-command-map
-          ("d" . lsp-find-definition)      ; M-s d
-          ("r" . lsp-find-references)      ; M-s r
-          ("e" . lsp-execute-code-action)) ; M-s e
-  :commands lsp)
-
-
-(use-package lsp-ui
-  :ensure t
-  :config (setq lsp-ui-sideline-delay 0)
-          (setq lsp-ui-doc-enable nil)
-  :custom-face (lsp-face-highlight-read ((t (:inherit highlight :background "white" :foreground "black" :underline t))))
-               (lsp-face-highlight-textual ((t (:inherit highlight :background "white" :foreground "black"))))
-               (lsp-face-highlight-write ((t (:inherit highlight :background "white" :foreground "black" :weight bold))))
-  :commands lsp-ui-mode)
-
 
 
 
