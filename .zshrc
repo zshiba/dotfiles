@@ -93,6 +93,9 @@ setopt print_eight_bit
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+### for clangd
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
 ### for rust projects
 export PATH="$HOME/.cargo/bin:$PATH"
 
