@@ -7,7 +7,7 @@
 
 ;; use space instead of tab for indentation
 ;; and 2-space per indent
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 (setq standard-indent 2)
 
 ;; show line, column number and visible portion in mode line
