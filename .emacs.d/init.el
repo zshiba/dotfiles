@@ -145,6 +145,7 @@
   :ensure t
   :hook ((rust-mode . lsp)
          (haskell-mode . lsp)
+         (elm-mode . lsp)
          (c-mode . lsp)
          (c++-mode . lsp))
   :init (setq lsp-keymap-prefix "M-s")
@@ -203,6 +204,11 @@
          (setq lsp-haskell-server-args nil)
         ;(setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
 )
+
+(use-package elm-mode
+  :ensure t
+  :config (setq elm-sort-imports-on-save t)
+          (setq elm-format-on-save t))
 
 
 
